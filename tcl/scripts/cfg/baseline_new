@@ -1,0 +1,35 @@
+#########################################################
+#The following is used to define the baseline status of testbed
+
+#this means the number of different baseline information type
+set baseline(typecount) 8
+
+#set all the varible as a null list
+for {set dutid 1} {$dutid <= $dut(count)} {incr dutid} {
+
+
+   for {set typeid 1} {$typeid <= $baseline(typecount)} {incr typeid} {
+      set baseline(type$typeid,dut$dutid) [list]
+   }
+}
+
+set baseline(type1,cli) "show ip bgp neighbor summary"
+#the content that should include in dut1 type1 baseline recorder
+
+
+lappend baseline(type1,dut2) {172.26.1.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.2.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.3.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.4.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.5.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.6.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.7.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.8.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.9.6\s*4\s*66.*established}
+lappend baseline(type1,dut2) {172.26.10.6\s*4\s*66.*established}
+
+
+
+
+
+

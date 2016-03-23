@@ -1,0 +1,98 @@
+#########################################################
+#The following are system configuration
+
+set testbed(thispc) "10.38.4.211"
+set testbed(tftpserver)  "10.38.4.211" 
+set testbed(home_d) "/home/jason/ST_phase2/"
+set testbed(log_d) "${testbed(home_d)}log/"
+set testbed(report_d) "${testbed(home_d)}report/"
+
+set testbed(exec_report) [open ${testbed(report_d)}CaseExecution.csv a+]
+set testbed(crash_report) [open ${testbed(report_d)}Crash.csv a+]
+#########################################################
+#The following are DUT configuration
+
+set testbed(tac_user) test
+set testbed(tac_pass) test
+
+set dut(count) 8
+
+set dut(1,mgt_ip) 10.38.4.101
+set dut(1,cserver_ip) 10.33.13.14 
+set dut(1,cserver_port) 10004
+set dut(1,type) skeeter
+
+set dut(2,mgt_ip) 10.38.4.102
+set dut(2,cserver_ip) 10.33.13.14
+set dut(2,cserver_port) 10015
+set dut(2,type) skeeter
+
+set dut(3,mgt_ip) 10.38.4.103
+set dut(3,cserver_ip) 10.33.13.4  
+set dut(3,cserver_port) 10003
+set dut(3,type) skeeter
+
+set dut(4,mgt_ip) 10.38.4.104
+set dut(4,cserver_ip) 10.33.13.4  
+set dut(4,cserver_port) 10004
+set dut(4,type) skeeter
+
+set dut(5,mgt_ip) 10.38.4.105
+set dut(5,cserver_ip) 10.33.13.4  
+set dut(5,cserver_port) 10005
+set dut(5,type) grephy
+
+set dut(6,mgt_ip) 10.38.4.106
+set dut(6,cserver_ip) 10.33.13.4  
+set dut(6,cserver_port) 10006
+set dut(6,type) grephy
+
+set dut(7,mgt_ip) 10.38.4.107
+set dut(7,cserver_ip) 10.33.13.4  
+set dut(7,cserver_port) 10007
+set dut(7,type) piglet
+
+set dut(8,mgt_ip) 10.38.4.108
+set dut(8,cserver_ip) 10.33.13.4  
+set dut(8,cserver_port) 10008
+set dut(8,type) piglet
+########################################################
+#The following is used to set device parameters according device type
+for {set i 1} {$i <= $dut(count)} {incr i} {
+   set dut($i,minport) 1
+   set dut($i,maxstg) 128
+
+   switch $dut($i,type) {
+      grephy {
+               set dut($i,maxport) 64
+               set dut($i,maxipint) 128
+               set dut($i,maxsession) 3
+
+            }
+      skeeter  {
+                  set dut($i,maxport) 24
+                  set dut($i,maxipint) [expr 126-2]
+                  set dut($i,maxsession) 3
+               }
+
+      piglet  {
+                  set dut($i,maxport) 39
+                  set dut($i,maxipint) [expr 126-2]
+                  set dut($i,maxsession) 3
+               }
+
+
+
+
+   }
+}
+
+
+
+
+
+
+
+
+
+

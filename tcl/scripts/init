@@ -1,0 +1,12 @@
+#!/opt/ActiveTcl-8.4/bin/tclsh
+set testbed(home_d) "/home/jason/ST_phase2/"
+set testbed(log_d) "${testbed(home_d)}log/"
+
+lappend auto_path /opt/ActiveTcl-8.4/lib/
+package require Expect
+source "${testbed(home_d)}lib/common.lib"
+source "${testbed(home_d)}lib/systemtest.lib"
+source "${testbed(home_d)}cfg/testbed"
+#source "${testbed(home_d)}cfg/testcase"
+source "${testbed(home_d)}cfg/baseline"
+

@@ -1,0 +1,63 @@
+###############################################################################
+#Function:
+#   1  log in a DUT
+#   2  select port range from selected DUT
+#   3  exec command on selected port
+#
+#Input variables:
+#   -sid            The spawn id of DUT
+#   -min            The min port of the port range
+#   -max            The max port of the port range
+#
+#Execute Example:
+#   exec_portcli -sid xxx -min 1 -max 20
+
+#Return values:
+#   1	Succeed
+#   0   Failed
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2010-12-20   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc api_shut_ran_port {args} {
+   array set p $args
+
+   if { [info exists p(-sid)] && [info exists p(-min)] && [info exists p(-max)]} {
+      } else {
+         puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Parameters wrong
+
+NAME: 
+      api_shut_ran_port --- shutdown selected port range on spcified spawnid
+
+SYNOPSIS: 
+      api_shut_ran_port -sid xx -min 1 -max 20
+
+OPTIONS:
+      -sid            The spawn id of DUT
+      -min            The min port of the port range
+      -max            The max port of the port range"
+     return 0
+     }
+
+   sendCmd $p(-sid) "end"
+   sendCmd $p(-sid) "config ter"
+   sendCmd $p(-sid) "inter port $p(-min)-$p(-max)"
+   sendCmd $p(-sid) "shut"
+   sendCmd $p(-sid) "end"
+   return 1
+}
+
+
+
+
+
+
+
+
+
+
+

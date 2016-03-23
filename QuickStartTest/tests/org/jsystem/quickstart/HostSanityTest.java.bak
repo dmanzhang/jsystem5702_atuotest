@@ -1,0 +1,41 @@
+package org.jsystem.quickstart;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.jsystem.quickstart.MyStation;
+import junit.framework.SystemTestCase4;
+
+public class HostSanityTest extends SystemTestCase4 {
+	private String pingDestination = "10.38.24.1";
+	private int    packetSize = 1024;
+	private MyStation myStation;
+	
+	@Before
+	public void before() throws Exception{
+	    myStation =  
+	              (MyStation)system.getSystemObject("my_station");  
+
+	}
+
+	@Test
+	public void pingFromDUT() throws Exception {
+		report.report("Calling myStation ping operation");
+        myStation.ping(getPingDestination(),getPacketSize());		
+	}
+
+	public String getPingDestination() {
+	    return pingDestination;
+	}
+
+	public void setPingDestination(String pingDestination) {
+	    this.pingDestination = pingDestination;
+	}
+
+	public int getPacketSize() {
+	    return packetSize;
+	}
+
+	public void setPacketSize(int packetSize) {
+	    this.packetSize = packetSize;
+	}	
+}

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: pwi3260sr12-20121025_01 (SR12) (IBM Corporation)
+Built-By: zhangzjj
+
+Name: com/aqua/StationsObject
+Implementation-Title: com.aqua.StationsObject
+Implementation-Version: zhangzjj 05-08-2013, 14-07-40 05-08-2013, 14-0
+ 7-40
+Implementation-Vendor: AQUA Software, www.aquasw.com
+

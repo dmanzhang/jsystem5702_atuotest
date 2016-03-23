@@ -1,0 +1,60 @@
+package org.jsystem.quickstart;
+
+import com.aqua.sysobj.conn.CliCommand;
+import com.aqua.sysobj.conn.CliConnectionImpl;
+import com.aqua.sysobj.conn.WindowsDefaultCliConnection;
+
+import jsystem.framework.system.SystemObjectImpl;
+
+public class MyStation extends SystemObjectImpl {
+	private String host;
+    private String userName;
+    private String password;
+    private CliConnectionImpl connection;
+	
+	public void init() throws Exception {
+        super.init();
+        report.report("In init method");
+        connection = new  
+                WindowsDefaultCliConnection(
+                       getHost(),getUserName(),getPassword());
+        connection.init();
+
+    }
+
+     public void close(){
+         super.close();
+         report.report("In close method");
+     }
+     
+	public void ping(String destination,int packetSize) 
+	        throws Exception {
+		    CliCommand command = 
+	             new CliCommand("ping " + destination + " -l " + packetSize);
+	        connection.handleCliCommand("Ping performed", command);
+	    }
+
+	public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}

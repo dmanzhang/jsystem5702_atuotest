@@ -1,0 +1,238 @@
+###############################################################################
+#Name:    st_send_file
+#
+#Function:
+#   send configuration in specified file to a speified DUT
+#
+#Input variables:  
+#   -file               The filename of configuration
+#   -dut                The dut id
+#   -ctype              The connection type that connect to DUT, include ssh/telent/console
+#
+#Execute Example:
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-20   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc st_send_file {args} {
+   array set p $args
+
+   set sid [connect_dut -dut $p(-dut) -type $p(-ctype)]
+   set cfg [open $p(-file) r]
+   set commands [split [read $cfg] "\n"]
+   
+   foreach cli $commands {
+      sendCmd $sid $cli
+   }
+
+}
+
+###############################################################################
+#Name:    set_common_default_value
+#
+#Function:
+#   Set default values for common parameters of test cases
+#   This API using global variables, not needs input variable
+#
+#Input variables:  NA
+# 
+#Execute Example:
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-18   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc set_common_default_value {} {
+   global p dut casename
+
+   #set the default executing time to be 1 minute
+   if { [info exists p(-time)]} {
+      #if execution time valid or not
+      if {($p(-time) < 1) || ($p(-time) > 999999)} { 
+         puts $testbed(exec_report) "[clock format [clock seconds]],\t$casename,\tParamter error,\texecution time should between 1 and 999999 minutes"
+         puts "\n\n!!!!!!!!!!!!!!!!!!!!!\nexecution time should between 1 and 999999 minutes  \n !!!!!!!!!!!!!!!!!!!!!!!\n\n"
+         return 0
+      }
+   } else {
+      set p(-time) 1
+   }
+
+   #set the default test DUT ID to be 1
+   if { [info exists p(-dut)]} {
+      #if input a dutid great then the max dut id
+      if {$p(-dut) > $dut(count)} { 
+         puts $testbed(exec_report) "[clock format [clock seconds]],\t$casename,\tParamter error,\tdutid shouldn't more then $dut(count)"
+         puts "\n\n!!!!!!!!!!!!!!!!!!!!!\ndutid shouldn't more then $dut(count)  \n !!!!!!!!!!!!!!!!!!!!!!!\n\n"
+         return 0
+      }
+   } else {
+      set p(-dut) 1
+   }
+
+   #set the default DUT connection type to be console
+   if { [info exists p(-ctype)]} {
+      #to check the connection type is valid or not
+      if {([string eq $p(-ctype) "telnet"]) || ([string eq $p(-ctype) "ssh"]) || ([string eq $p(-ctype) "console"])} {
+      } else {
+         puts $testbed(exec_report) "[clock format [clock seconds]],\t$casename,\tParamter error,\tconnection type should be ssh/telnet/console"
+         puts "\n\n!!!!!!!!!!!!!!!!!!!!!\nconnection type should be ssh/telnet/console  \n !!!!!!!!!!!!!!!!!!!!!!!\n\n"
+         return 0
+      }
+   } else {
+      set p(-ctype) console
+   }
+
+   #check or not check at the end of case, default value is 0, means not check
+#   if { [info exists p(-check)]} {
+#   } else {
+#      set p(-check) 0
+#   }
+
+   return 1
+}
+
+
+################################################################################
+#check if exist file /tmp/st_stop, if then return fale
+#
+################################################################################
+proc stopped {args} {
+   if {[file exists /tmp/st_stop]} {
+      puts "\n\nstopped by admin \(exist file \/tmp\/st_stop\)"
+      return 1
+   }
+
+   return 0
+}
+
+###############################################################################
+#Name:    connect_dut
+#
+#Function:
+#   Establish connection to selected DUT with spcified connection type
+#
+#Input variables:
+#   -type              Connection type, maybe ssh/telent/console
+#   -dut               The dut id that we want to connect to
+# 
+#Execute Example:
+#    connect_dut -dut 2 -type telnet
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-18   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc connect_dut {args} {
+   array set p $args
+   global dut testbed
+   set timeout 20
+   set max_retry 5
+   
+   set tac_user $testbed(tac_user)
+   set tac_pass $testbed(tac_pass)
+
+   switch $p(-type) {
+      console {set cmd [list spawn telnet $dut($p(-dut),cserver_ip) $dut($p(-dut),cserver_port)]}
+      telnet  {set cmd [list spawn telnet $dut($p(-dut),mgt_ip)]}
+      ssh  {set cmd [list spawn ssh -l admin $dut($p(-dut),mgt_ip)]}
+   }
+   set trytimes 1
+   eval $cmd
+
+   if {$p(-type)=="console"} {
+      expect "Escape character"
+      send "\n"
+   }
+
+   if {$p(-type)=="ssh"} {
+      expect {
+         "Enter tacacs password"   {
+            close
+            set cmd [list spawn ssh -l test $dut($p(-dut),mgt_ip)]
+            eval $cmd
+         }
+         "Enter password:" {
+            send "admin\n"
+         }
+      }
+   }
+
+   expect {
+      "Are you sure you want to continue connecting (yes\/no)" {
+         send "yes\n"
+         exp_continue
+      }
+
+      "Received disconnect from" {
+         set cmd [list spawn ssh -l test $dut($p(-dut),mgt_ip)]
+         eval $cmd
+         exp_continue
+      }
+
+      "tacacs username:" {
+         send "$tac_user\n"
+         exp_continue
+      }
+
+      "tacacs password:" {
+         send "$tac_pass\n"
+         exp_continue
+      }
+
+      "(ibmnos-cli\/iscli):" {
+         send "is\n"
+         exp_continue
+      }
+
+      "password: " {
+         send "admin\n"
+         exp_continue
+      }
+
+      "\>" {
+         send "enable\n"
+         exp_continue
+      }
+      
+      "#" {send "\n"}
+
+      timeout {
+         send_log "\n\nConnection timeout, retry [expr ${max_retry}-$trytimes] times left, retry after 10 seconds"
+         puts "\n\nConnection timeout, retry [expr ${max_retry}-$trytimes] times left, retry after 10 seconds"
+         incr trytimes
+         if {$trytimes>5} {error "Can't connect to DUT"}
+         after 10000
+         send "\n"
+         exp_continue
+      }
+   }
+
+   send "conf t\n"
+   expect "config"
+
+   send "terminal-length 0\n"
+   expect "config"
+
+#   send "no prompting\n"
+#   expect "config"
+
+   send "system idle 60\n"
+   expect "config"
+
+   send "no logging console\n"
+   expect "config"
+
+   send "show clock\n"
+   expect "config"
+
+   return $spawn_id
+}
+
+

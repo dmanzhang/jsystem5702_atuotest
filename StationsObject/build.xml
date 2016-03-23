@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="StationsObject">
+<property name="projectName" value="StationsObject"/>
+<property environment="env"/>
+<property name="dist" value="../QuickStartTest/lib"/>
+<property name="runnerRoot" value="C:\jsystem\runner"/>
+<property name="buildFilesDir" value="${runnerRoot}/dev"/>
+<import file="${buildFilesDir}/buildHelper.xml"/>
+</project>

@@ -1,0 +1,162 @@
+########################################################
+#The following is used to set test case execute list
+
+#The duration in minute that each script will last
+set duration 30
+
+
+for {set dutid 1} {$dutid <= $dut(count)} {incr dutid} {
+   set testbed(exec_list,$dutid) [list]
+}
+
+#following case are only running on DUT1,2,5,6
+set caselist [list]
+lappend caselist "st_vrrp_004 "
+lappend caselist "st_vrrp_002 "
+lappend caselist "st_vrrp_001 "
+lappend caselist "st_ospf_001       "
+lappend caselist "st_ospf_003       "
+lappend caselist "st_ospf_004       "
+lappend caselist "st_ospf_007       "
+lappend caselist "st_ospf_008       "
+lappend caselist "st_ospf_009       "
+lappend caselist "st_ospf_010       "
+lappend caselist "st_ospf_011       "
+lappend caselist "st_ospf_013       "
+lappend caselist "st_ospf_014       "
+lappend caselist "st_ospf_015       "
+lappend caselist "st_vlag_001        "
+lappend caselist "st_vlag_002       "
+lappend caselist "st_vlag_003        "
+lappend caselist "st_vlag_004       "
+
+foreach dutid [list 1 2 5 6 ] {
+   foreach case $caselist {
+      set ctype [Get_random_list -list [list telnet ssh]]
+      lappend testbed(exec_list,$dutid) "\./st_main $case -ctype $ctype -time $duration -dut $dutid\t\>/dev/null0 \&"
+   }
+}
+
+
+
+
+
+#following case are only running on DUT2,5
+set caselist [list]
+lappend caselist "	st_failover_001	"
+lappend caselist "	st_failover_002	"
+lappend caselist "	st_failover_003	"
+
+
+foreach dutid [list 2 5 ] {
+   foreach case $caselist {
+      set ctype [Get_random_list -list [list telnet ssh]]
+      lappend testbed(exec_list,$dutid) "\./st_main $case -ctype $ctype -time $duration -dut $dutid\t\>/dev/null0 \&"
+   }
+}
+
+
+
+
+#following case are only running on DUT2,3,4,5
+set caselist [list]
+lappend caselist "	st_bgp_001	"
+lappend caselist "	st_bgp_002	"
+lappend caselist "	st_bgp_003	"
+lappend caselist "	st_bgp_004	"
+lappend caselist "	st_bgp_006	"
+
+foreach dutid [list 2 3 4 5 ] {
+   foreach case $caselist {
+      set ctype [Get_random_list -list [list telnet ssh]]
+      lappend testbed(exec_list,$dutid) "\./st_main $case -ctype $ctype -time $duration -dut $dutid\t\>/dev/null0 \&"
+   }
+}
+
+
+
+#following case are only running on DUT1,2
+set caselist [list]
+lappend caselist "	st_rip_001	"
+lappend caselist "	st_rip_002	"
+lappend caselist "	st_rip_003	"
+lappend caselist "	st_rip_004	"
+lappend caselist "	st_rip_009	"
+lappend caselist "	st_rip_011	"
+
+
+foreach dutid [list 1 2 ] {
+   foreach case $caselist {
+      set ctype [Get_random_list -list [list telnet ssh]]
+      lappend testbed(exec_list,$dutid) "\./st_main $case -ctype $ctype -time $duration -dut $dutid\t\>/dev/null0 \&"
+   }
+}
+
+
+
+
+#following cases are running on all DUT
+set caselist [list]
+lappend caselist "	st_igmp_001	"
+lappend caselist "	st_igmp_002	"
+lappend caselist "	st_igmp_003	"
+lappend caselist "	st_igmp_004	"
+lappend caselist "	st_igmp_005	"
+lappend caselist "	st_igmp_006	"
+lappend caselist "	st_igmp_007	"
+lappend caselist "	st_igmp_008	"
+lappend caselist "	st_l3common_001	"
+lappend caselist "	st_l3common_002	"
+lappend caselist "	st_l3common_003	"
+lappend caselist "	st_l3common_004	"
+lappend caselist "	st_lacp_001	"
+lappend caselist "	st_lacp_003	"
+lappend caselist "	st_mgt_001	"
+lappend caselist "	st_mgt_002	"
+lappend caselist "	st_mgt_003	"
+lappend caselist "	st_mgt_004	"
+lappend caselist "	st_mgt_005	"
+lappend caselist "	st_mgt_006	"
+lappend caselist "	st_mgt_010	"
+lappend caselist "	st_mgt_011	"
+lappend caselist "	st_mgt_012	"
+lappend caselist "	st_mgt_013	"
+lappend caselist "	st_mgt_015	"
+lappend caselist "	st_mgt_018	"
+lappend caselist "	st_mgt_020	"
+lappend caselist "	st_mgt_027	"
+lappend caselist "	st_pvrst_001	"
+lappend caselist "	st_pvrst_002	"
+lappend caselist "	st_pvrst_003	"
+lappend caselist "	st_pvrst_004	"
+lappend caselist "	st_pvrst_005	"
+lappend caselist "	st_pvrst_006	"
+lappend caselist "	st_vlan_001	"
+lappend caselist "	st_vlan_002	"
+lappend caselist "	st_vlan_003	"
+lappend caselist "	st_vlan_004	"
+lappend caselist "	st_vlan_005	"
+
+
+
+
+for {set dutid 1} {$dutid <= $dut(count)} {incr dutid} {
+   foreach case $caselist {
+      set ctype [Get_random_list -list [list telnet ssh]]
+      lappend testbed(exec_list,$dutid) "\./st_main $case -ctype $ctype -time $duration -dut $dutid\t\>/dev/null0 \&"
+   }
+}
+
+
+#for {set dutid 1} {$dutid <= $dut(count)} {incr dutid} { 
+#   set testbed(exec_list,$dutid) [list]
+#   for {set session 1} {$session <= $dut($dutid,maxsession)} {incr session} { 
+#      foreach case $caselist {
+#         foreach ctype [list telnet ssh] {
+#            lappend testbed(exec_list,$dutid) "\./st_main $case -ctype $ctype -time $duration -dut $dutid\t\>/dev/null0 \&"
+#         }
+#      }
+#   }
+#}
+
+

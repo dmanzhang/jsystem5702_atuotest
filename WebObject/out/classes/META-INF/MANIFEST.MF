@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: pwi3260sr12-20121025_01 (SR12) (IBM Corporation)
+Built-By: zhangzjj
+
+Name: com/aqua/WebObject
+Implementation-Title: com.aqua.WebObject
+Implementation-Version: zhangzjj 16-04-2013, 17-52-58 16-04-2013, 17-5
+ 2-58
+Implementation-Vendor: AQUA Software, www.aquasw.com
+

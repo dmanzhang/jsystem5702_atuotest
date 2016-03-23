@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><sut>
+    <my_station>
+        <class>org.jsystem.quickstart.MyStation</class>
+        <host>9.43.102.107</host>
+        <userName>jianjiez</userName>
+        <password>blade123</password>
+        <ccView>jianjiez_hobart_submit07</ccView>
+        <tftpRoot>/tftpboot/temp/hobartzhang/</tftpRoot>
+    </my_station>
+    <my_switch>
+        <class>org.jsystem.quickstart.MySwitchOpen</class>
+        <host>9.111.71.133</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+        <tftpServer>9.111.86.13</tftpServer>
+        <protocalPort>23</protocalPort>
+    </my_switch>
+    <my_ftpclient>
+        <class>org.jsystem.quickstart.MyFtpclient</class>
+        <host>9.43.102.106</host>
+        <userName>anonymous</userName>
+        <password>anonymous</password>
+        <tftpRoot>/temp/hobartzhang/</tftpRoot>
+        <tftpServer>9.111.86.13</tftpServer>
+        <localPath>C:\Users\IBM_ADMIN\Desktop\share\elf\temp\</localPath>
+    </my_ftpclient>
+    <my_sftpclient>
+        <class>org.jsystem.quickstart.MySftpclient</class>
+        <host>9.43.102.106</host>
+        <userName>jianjiez</userName>
+        <password>blade123</password>
+        <tftpRoot>/tftpboot/temp/hobartzhang/</tftpRoot>
+        <tftpServer>9.111.86.13</tftpServer>
+        <localPath>C:\Users\IBM_ADMIN\Desktop\share\elf\temp\</localPath>
+    </my_sftpclient>
+</sut>

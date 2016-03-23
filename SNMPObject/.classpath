@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/runner/lib/snmp.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/lib/grammatica-bin-1.4.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/lib/commons-fileupload-1.2.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-net.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/jakarta-oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/lib/mibble-mibs-2.6.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/lib/mibble-parser-2.6.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/lib/snmp4_13.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/lib/snmp-opennms.jar"/>
+	<classpathentry kind="con" path="com.ignis.eclipse.JSystemClasspathContainer.SIMPLE_DIR_CONTAINER"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

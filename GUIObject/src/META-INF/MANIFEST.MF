@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: pwi3260sr12-20121025_01 (SR12) (IBM Corporation)
+Built-By: zhangzjj
+
+Name: com/aqua/GUIObject
+Implementation-Title: com.aqua.GUIObject
+Implementation-Version: zhangzjj 15-04-2013, 16-54-32 15-04-2013, 16-5
+ 4-32
+Implementation-Vendor: AQUA Software, www.aquasw.com
+

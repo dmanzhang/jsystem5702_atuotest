@@ -1,0 +1,325 @@
+###############################################################################
+#Name:    get_systime
+#
+#Function:
+#   Get the formated system time
+#
+#Input variables:
+#
+#Execute Example:
+#    get_systime
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-26   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc get_systime {args} {
+   return [clock format [clock seconds] -format %Y%m%d_%H%M%S]
+}
+
+###############################################################################
+#Name:    get_uptime
+#
+#Function:
+#   Get the uptime for specified DUT
+#
+#Input variables:
+#   -result            The result of cli "show sys-info"
+#
+#Execute Example:
+#    get_uptime -result $show_sys
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-21   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc get_uptime {args} {
+   array set p $args
+   
+   regexp -line -- "Switch has been up for (.*) day.* (.*) hour.* (.*) minut" $p(-result) all d h m s
+#   puts "\n\n d=$d   h=$h   m=$m   s=$s\n\n"
+   
+   return [expr $d*1440+$h*60+$m]
+}
+
+
+
+
+###############################################################################
+#Name:    sendCmds
+#
+#Function:
+#   Send multiple commands to connection and return its execution values
+#
+#Input variables:
+#   -sid               The spawn id of connection
+#   -cmd               A list contains all the executable command
+#   -timeout           The timeout value for expect
+# 
+#Execute Example:
+#    sendCmds -sid 1 -timeout 60 -cmd [list "show ip route" "clear ip route"]
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-18   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc sendCmds {args} {
+   array set p $args
+   set result ""
+
+   lappend p(-cmd) " "
+   lappend p(-cmd) " "
+
+   foreach cmd $p(-cmd) {
+      append result [sendCmd $p(-sid) $cmd $p(-timeout)] 
+   }
+
+   return $result
+}
+
+
+###############################################################################
+#Name:    Get_random
+#
+#Function:
+#   Get random int number between x and y
+#
+#Input variables:
+#   -min              The minimum number of select range
+#   -max              The maximum number of select range
+# 
+#Execute Example:
+#    Get_random -min 30 -max 50
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-18   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc Get_random {args} {
+   array set p $args
+   if {[catch {set range [expr $p(-max)-$p(-min)+1]}]} {
+       puts "!!! Input paramber error !!!"
+   }
+
+   return [expr $p(-min)+int($range*rand())]
+}
+
+
+###############################################################################
+#Name:    Get_random_list
+#
+#Function:
+#   Get random item from a list
+#
+#Input variables:
+#   -list             A list contains selectable values
+# 
+#Execute Example:
+#    Get_random_list -list [list 1 3 5 7 9]
+#
+#History:
+# Version    Date        Modifier        Modify summary
+# 1.0       2011-01-18   tony.tang       Create
+#
+#Notes:
+###############################################################################
+proc Get_random_list {args} {
+   array set p $args
+   if {[catch {set len [llength $p(-list)]}]} {
+       puts "!!! Input paramber error !!!"
+   }
+   set ind [expr [Get_random -min 1 -max $len]-1]
+   return [lindex $p(-list) $ind]
+}
+
+
+################################################################################
+#Get random network net
+#
+################################################################################
+proc Get_random_net {} {
+   set type [Get_random min 1 max 3]
+   switch $type {
+      1  {return [Get_random min 0 max 256].0.0.0}
+      2  {return [Get_random min 0 max 256].[Get_random min 0 max 256].0.0}
+      3  {return [Get_random min 0 max 256].[Get_random min 0 max 256].[Get_random min 0 max 256].0}
+   }
+}
+
+################################################################################
+#Get random mac
+#
+################################################################################
+proc Get_random_mac {} {
+   set rmac 00:[Get_random min 10 max 99]
+   set rmac $rmac:[Get_random min 10 max 99]
+   set rmac $rmac:[Get_random min 10 max 99]
+   set rmac $rmac:[Get_random min 10 max 99]
+   set rmac $rmac:[Get_random min 10 max 99]
+
+   return $rmac
+}
+
+
+################################################################################
+#Get random network mask
+#
+################################################################################
+proc Get_random_mask {} {
+   set mask(0) 0
+   set mask(1) 128
+   set mask(2) 192
+   set mask(3) 224
+   set mask(4) 240
+   set mask(5) 248
+   set mask(6) 252
+   set mask(7) 255
+
+   set type [Get_random min 1 max 3]
+   switch $type {
+      1  {return 255.255.255.$mask([Get_random min 0 max 7])}
+      2  {return 255.255.$mask([Get_random min 0 max 7]).0}
+      3  {return 255.$mask([Get_random min 0 max 7]).0.0}
+   }
+}
+
+
+################################################################################
+#Get random IP
+#
+################################################################################
+proc Get_random_ip {} {
+   set ip [Get_random min 1 max 255].[Get_random min 0 max 255].[Get_random min 0 max 255].[Get_random min 0 max 255]
+   return $ip
+}
+
+
+################################################################################
+#Name: sendCmd
+#Description: send a command to a telnet session 
+#Input: spawnId cmd [timeOut 20]
+#Output: None
+#Return: PASS/{FAIL "xxx"}
+#History: zhanglangchong 07/20/2005 creation script
+#Example: sendCmd 1024 "con t" 20
+################################################################################
+proc sendCmd {spawnId cmd {timeOut 60}} {
+   global expect_out buffer
+   set reslist ""
+   
+   after [expr 0*1000]
+
+   if [catch {set spawn_id $spawnId} err] {   
+       puts "ERROR !! set spawn_id fail"   
+       return 0
+   }
+   
+   if [catch {exp_pid -i $spawn_id} err] {      
+       puts "ERROR !! set spawn_id fail"  
+       return 0
+   }
+   
+   match_max 10000 
+   set timeout $timeOut
+   set send_slow {10 .01}
+   
+   #clear buffer
+   expect -i $spawn_id "*"  
+   set buffer "" 
+   set expect_out(buffer) ""
+
+   if [catch {send -s "$cmd\r"} err] {      
+      set reslist FAIL
+      lappend reslist $err   
+      return $reslist
+   }
+  
+   expect {
+      -i $spawn_id 
+       "(Q to quit)" {
+            set send_slow {10 .1}
+            append buffer "$expect_out(buffer)"
+            send -s  " "
+            exp_continue
+          }   
+       "(y\/n)" {
+            set send_slow {10 .1}
+            append buffer "$expect_out(buffer)"
+            send -s  "y\r "
+            exp_continue
+          }
+
+       "More" {
+            set send_slow {10 .1}
+            append buffer "$expect_out(buffer)"
+            send -s  " "
+            exp_continue
+          }
+  
+       "Transfer timed out" {
+            #logMsg  "$expect_out(buffer)"
+            append buffer "$expect_out(buffer)"
+            set reslist FAIL
+            lappend reslist "send command $cmd fail:Transfer timed out"
+            return $reslist
+       }
+       "\#" {
+            append buffer "$expect_out(buffer)"
+            set reslist PASS
+       }
+
+       "\(config" {
+            append buffer "$expect_out(buffer)"
+            set reslist PASS
+       }
+       
+       timeout   {   
+            append buffer "$expect_out(buffer)"
+            set reslist TIMEOUT         
+        }
+
+        eof { 
+           return 1      
+           
+        }   
+   }
+
+   #the following is used to ensure we can get correct CLI output 
+   send "   \n"
+   expect "\#"
+   append buffer "$expect_out(buffer)"
+
+   send "   \n"
+   expect "\#"
+
+   append buffer "$expect_out(buffer)"
+   lappend reslist $buffer
+   return $reslist
+    
+}
+
+#####################################################################
+#Get free memoery on Piggy
+####################################################################
+proc getFreeMem { spawnID } {
+  upvar hostname hostname
+  sendCmd $spawnID ""
+
+  if {catch "set res \[sendCmd $spawnID "show mp cpu"\]"} {
+    return ERROR
+  } else {
+     set res_list [lindex $res 1]
+     set freeIndex [expr [lsearch $res_list "MemFree:"]+1]
+     return [lindex $res_list $freeIndex]
+  }
+}
+
+

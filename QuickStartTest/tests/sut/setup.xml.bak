@@ -1,0 +1,9 @@
+<sut>
+    <my_station>
+        <class>org.jsystem.quickstart.MyStation</class>
+        <host>10.38.21.31</host>
+        <userName>admin</userName>
+        <password>admin</password>
+    </my_station>
+
+</sut>

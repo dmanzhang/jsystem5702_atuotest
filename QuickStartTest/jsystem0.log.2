@@ -1,0 +1,46 @@
+2012-11-28 11:15:47 jsystem.extensions.report.html.HtmlTestReporter <init>
+INFO: Logs were found without a backup, creating a backup of logs and deleting old logs...
+2012-11-28 11:15:47 jsystem.framework.sut.SutFactory init
+FINE: Use sut file: setup.xml
+2012-11-28 11:15:47 jsystem.framework.report.RunnerListenersManager addTestInfo
+WARNING: Fail to load test code because java2html jar is missing. de.java2html.javasource.JavaSourceParser
+2012-11-28 11:15:48 jsystem.framework.scenario.RunnerTest loadParameters
+FINE: Unknown parameter type: junit.framework.TestResult for: TestResult
+2012-11-28 11:15:48 junit.framework.SystemTestCaseImpl jsystemTestPreExecution
+INFO: Running test: pingFromDUT
+2012-11-28 11:15:48 jsystem.framework.system.SystemManagerImpl getSystemObject
+FINE: the ref: /sut/my_station was not found
+Throwable occurred: java.lang.Exception: Object was not found: /sut/my_station/@ref
+	at jsystem.framework.sut.SutImpl.getValue(SutImpl.java:141)
+	at jsystem.framework.system.SystemManagerImpl.getSystemObject(SystemManagerImpl.java:143)
+	at jsystem.framework.system.SystemManagerImpl.getSystemObject(SystemManagerImpl.java:96)
+	at org.jsystem.quickstart.HostSanityTest.before(HostSanityTest.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:60)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:37)
+	at java.lang.reflect.Method.invoke(Method.java:611)
+	at org.junit.internal.runners.MethodRoadie.runBefores(MethodRoadie.java:122)
+	at org.junit.internal.runners.MethodRoadie.runBeforesThenTestThenAfters(MethodRoadie.java:86)
+	at org.junit.internal.runners.MethodRoadie.runTest(MethodRoadie.java:77)
+	at org.junit.internal.runners.MethodRoadie.run(MethodRoadie.java:42)
+	at org.junit.internal.runners.JUnit4ClassRunner.invokeTestMethod(JUnit4ClassRunner.java:88)
+	at org.junit.internal.runners.JUnit4ClassRunner.runMethods(JUnit4ClassRunner.java:51)
+	at org.junit.internal.runners.JUnit4ClassRunner$1.run(JUnit4ClassRunner.java:44)
+	at org.junit.internal.runners.ClassRoadie.runUnprotected(ClassRoadie.java:27)
+	at org.junit.internal.runners.ClassRoadie.runProtected(ClassRoadie.java:37)
+	at org.junit.internal.runners.JUnit4ClassRunner.run(JUnit4ClassRunner.java:42)
+	at junit.framework.JSystemJUnit4ClassRunner.run(JSystemJUnit4ClassRunner.java:216)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+2012-11-28 11:15:51 jsystem.framework.scenario.JTestContainer <init>
+FINE: JTest container : scenarios\default
+2012-11-28 11:15:51 jsystem.framework.scenario.RunnerTest loadParameters
+FINE: Unknown parameter type: junit.framework.TestResult for: TestResult
+2012-11-28 11:15:51 jsystem.utils.PerformanceUtil endMeasure
+INFO: Loading scenario: scenarios/default Took 0.07 seconds.
+2012-11-28 11:15:51 jsystem.framework.scenario.ParametersManager retrieveTestParametersToEnvironment
+FINE: running from dev studio, no need to return parameters

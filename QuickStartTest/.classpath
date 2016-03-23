@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-compress-1.4.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-io-2.3.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-jxpath-1.3.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-net.jar"/>
+	<classpathentry kind="con" path="com.ignis.eclipse.JSystemClasspathContainer.SIMPLE_DIR_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MyStationObject"/>
+	<classpathentry kind="lib" path="C:/jsystem/runner/lib/scriptingLanguages.jar"/>
+	<classpathentry kind="lib" path="C:/jsystem/runner/lib/cli.jar"/>
+	<classpathentry kind="src" path="/StationsObject"/>
+	<classpathentry kind="lib" path="C:/jsystem/runner/thirdparty/commonLib/jsch-0.1.49.jar"/>
+	<classpathentry kind="src" path="/WebObject"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

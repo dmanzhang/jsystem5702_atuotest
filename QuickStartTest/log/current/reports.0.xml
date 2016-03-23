@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><reports Setup="gryphon23310001.xml" startTime="1378950083415" status="true">
+    <test count="1" name="MultiSwitchCase.OpenDUT" package="org.jsystem.quickstart" startTime="1378950083777" status="true" testIndex="0"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT1" package="org.jsystem.quickstart" startTime="1378950084589" status="true" testIndex="1"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT2" package="org.jsystem.quickstart" startTime="1378950084775" status="true" testIndex="2"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT3" package="org.jsystem.quickstart" startTime="1378950084867" status="true" testIndex="3"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT1Command" package="org.jsystem.quickstart" startTime="1378950084957" status="true" testIndex="4"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT1Command2" package="org.jsystem.quickstart" startTime="1378950085058" status="true" testIndex="5"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT2Command" package="org.jsystem.quickstart" startTime="1378950085143" status="true" testIndex="6"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT2Command2" package="org.jsystem.quickstart" startTime="1378950085236" status="true" testIndex="7"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT3Command" package="org.jsystem.quickstart" startTime="1378950085337" status="true" testIndex="8"/>
+    <test count="1" name="MultiSwitchCase.OpenDUT3Command2" package="org.jsystem.quickstart" startTime="1378950085443" status="true" testIndex="9"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildBootDUT1" package="org.jsystem.quickstart" startTime="1378950085541" status="true" testIndex="10"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildImage1DUT1" package="org.jsystem.quickstart" startTime="1378950085631" status="true" testIndex="11"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildImage2DUT1" package="org.jsystem.quickstart" startTime="1378950085732" status="true" testIndex="12"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildBootDUT2" package="org.jsystem.quickstart" startTime="1378950085962" status="true" testIndex="13"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildImage1DUT2" package="org.jsystem.quickstart" startTime="1378950086053" status="true" testIndex="14"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildImage2DUT2" package="org.jsystem.quickstart" startTime="1378950086166" status="true" testIndex="15"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildBootDUT3" package="org.jsystem.quickstart" startTime="1378950086264" status="true" testIndex="16"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildImage1DUT3" package="org.jsystem.quickstart" startTime="1378950086449" status="true" testIndex="17"/>
+    <test count="1" name="MultiSwitchCase.UpdateBuildImage2DUT3" package="org.jsystem.quickstart" startTime="1378950086560" status="true" testIndex="18"/>
+    <test count="1" name="MultiSwitchCase.reloadDUT1" package="org.jsystem.quickstart" startTime="1378950086658" status="true" testIndex="19"/>
+    <test count="1" name="MultiSwitchCase.reloadDUT2" package="org.jsystem.quickstart" startTime="1378950086746" status="true" testIndex="20"/>
+</reports>

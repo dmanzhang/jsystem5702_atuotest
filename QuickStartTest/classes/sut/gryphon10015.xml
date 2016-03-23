@@ -1,0 +1,9 @@
+<sut>
+    <my_switch>
+        <class>org.jsystem.quickstart.MySwitchOpen</class>
+        <host>10.38.21.20</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+    </my_switch>
+</sut>
