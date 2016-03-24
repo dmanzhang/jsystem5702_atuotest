@@ -1,0 +1,9 @@
+<sut>
+    <my_station>
+        <class>org.jsystem.automationProj.MyStation</class>
+        <host>10.38.24.245</host>
+        <userName>hobart</userName>
+        <password>1q2w3e</password>
+    </my_station>
+
+</sut>

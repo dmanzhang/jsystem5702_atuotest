@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sut>
+    <my_station>
+        <class>org.jsystem.automationProj.MyStation</class>
+        <host>192.168.213.110</host>
+        <userName>dman</userName>
+        <password>1q2w3e</password>
+        <ccView>/home/dman/build-linux/QorIQ_SDK-20110709-systembuilder</ccView>
+        <tftpRoot>/home/dman/build-linux/QorIQ_SDK-20110709-systembuilder/build_p1022ds_release/deploy/glibc/images/</tftpRoot>
+        <stripOk>make[1]</stripOk>
+        <codeDir>/ts/mp/sys/</codeDir>
+        <file1Name>ip_cli.c</file1Name>
+        <file2Name>ip_route.c</file2Name>
+    </my_station>
+    <broadcom_shell>
+        <class>org.jsystem.automationProj.BroadcomSDKshellParam</class>
+        <host>10.10.1.8</host>
+        <telnetPort>23</telnetPort>
+        <userName>root</userName>
+        <password>admin</password>
+        <tftpRoot>/tftpboot/temp/hobartzhang/</tftpRoot>
+        <promptString>#</promptString>
+        <connectedPrompt>jh1022:~#</connectedPrompt>
+        <connectMode>RS232</connectMode>
+        <serialPort>COM3</serialPort>
+        <serialBaudRate>115200</serialBaudRate>
+    </broadcom_shell>
+    <my_sftpclient>
+        <class>org.jsystem.automationProj.MySftpclient</class>
+        <host>192.168.213.110</host>
+        <userName>root</userName>
+        <password>hlhzjj82</password>
+        <tftpRoot>/home/dman/sdk-xgs-robo-5.10.4/systems/linux/kernel/bmw-2_6/</tftpRoot>
+        <tftpServer>9.111.86.13</tftpServer>
+        <localPath>E:\work\9elf\kernel\</localPath>
+    </my_sftpclient>
+</sut>

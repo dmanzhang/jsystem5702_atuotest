@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><sut>
+    <my_transfer>
+        <class>org.jsystem.automationProj.ASCIItransform</class>
+        <localPath>C:\Users\IBM_ADMIN\Desktop\log\</localPath>
+        <property>IP_OVER_ATP</property>
+    </my_transfer>
+</sut>

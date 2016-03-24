@@ -1,0 +1,9 @@
+<sut>
+    <my_switch1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>10.38.21.27</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+    </my_switch1>
+</sut>

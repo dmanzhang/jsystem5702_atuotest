@@ -1,0 +1,28 @@
+<sut>
+    <my_webstation>
+        <class>org.jsystem.automationProj.WebDriverTest</class>
+        <baseUrl>http://9.111.71.133/</baseUrl>
+    </my_webstation>
+    <www_webstation>
+        <class>org.jsystem.automationProj.WwwSeleniumCom</class>
+        <baseUrl>http://docs.seleniumhq.org/</baseUrl>
+    </www_webstation>
+    <my_switch1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>9.111.71.133</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+        <tftpServer>9.111.86.13</tftpServer>
+        <protocalPort>23</protocalPort>
+    </my_switch1>
+    <my_sftpclient>
+        <class>org.jsystem.automationProj.MySftpclient</class>
+        <host>9.43.102.106</host>
+        <userName>jianjiez</userName>
+        <password>blade123</password>
+        <tftpRoot>/tftpboot/temp/hobartzhang/</tftpRoot>
+        <tftpServer>9.111.86.13</tftpServer>
+        <localPath>C:\Users\IBM_ADMIN\Desktop\share\elf\temp\</localPath>
+    </my_sftpclient>    
+</sut>

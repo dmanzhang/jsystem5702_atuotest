@@ -1,0 +1,12 @@
+<sut>
+	<my_station>
+		<class>com.jsystem.cliexample.MyStation</class>
+		<connection>
+			<class>com.aqua.sysobj.conn.LinuxDefaultCliConnection</class> 
+			<user>aqua</user>
+			<password>aqua</password>
+			<host>10.0.0.201</host>
+			<connectOnInit>false</connectOnInit>
+		</connection>
+	</my_station>
+</sut>

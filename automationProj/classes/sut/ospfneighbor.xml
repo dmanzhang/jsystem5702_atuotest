@@ -1,0 +1,24 @@
+<sut>
+    <my_switch1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>9.111.71.133</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+        <tftpServer>9.111.86.13</tftpServer>
+        <linkUpPort>40</linkUpPort>
+        <SUTPort>40</SUTPort>
+        <SUTPort1>54</SUTPort1>
+    </my_switch1>
+    <my_sut1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>9.111.71.32</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+        <tftpServer>9.111.86.13</tftpServer>
+        <linkUpPort>40</linkUpPort>
+        <SUTPort>40</SUTPort>
+        <SUTPort1>48</SUTPort1>
+    </my_sut1>
+</sut>

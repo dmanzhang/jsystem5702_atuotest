@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="tests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/runner/lib/stations.jar"/>
+	<classpathentry kind="lib" path="/runner/lib/filetransfer.jar"/>
+	<classpathentry kind="lib" path="C:/jsystem/runner/thirdparty/commonLib/commons-io-2.3.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/ftpserver-dev.jar"/>
+	<classpathentry kind="lib" path="/runner/lib/cli.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/comm.jar"/>
+	<classpathentry kind="lib" path="/runner/thirdparty/commonLib/ganymed.jar"/>
+	<classpathentry kind="con" path="com.ignis.eclipse.JSystemClasspathContainer.SIMPLE_DIR_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/jsystem/runner/thirdparty/commonLib/commons-compress-1.4.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/drive-station"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/drive-switch"/>
+	<classpathentry kind="lib" path="C:/jsystem/runner/thirdparty/lib/java2html.jar"/>
+	<classpathentry kind="lib" path="C:/jsystem/runner/thirdparty/lib/j2h.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/drive-bcmsdk"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>

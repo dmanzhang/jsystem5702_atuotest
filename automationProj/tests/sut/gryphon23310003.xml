@@ -1,0 +1,11 @@
+<sut>
+    <my_switch1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>9.111.70.233</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+        <tftpServer>9.111.86.13</tftpServer>
+        <protocalPort>10003</protocalPort>
+    </my_switch1>
+</sut>

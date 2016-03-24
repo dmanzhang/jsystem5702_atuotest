@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sut>
+	<ping>
+		<class>com.aqua.stations.Ping</class>
+		<cliConnection>
+            <class>com.aqua.sysobj.conn.LinuxDefaultCliConnection</class>
+            <host edit="enable">10.10.1.110</host>
+            <user edit="enable">root</user>
+            <password edit="enable">hlhzjj82</password>
+		</cliConnection>
+	</ping>
+</sut>
