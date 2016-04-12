@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reports Setup="rawshellDevelop.xml" startTime="1416881685778" status="true">
+    <test count="1" name="BroadcomSDKshellTest.OpenDUT" package="org.jsystem.automationProj" startTime="1416881685848" status="true" testIndex="0"/>
+</reports>

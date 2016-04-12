@@ -1,0 +1,13 @@
+<sut>
+    <my_station>
+        <class>org.jsystem.automationProj.MyStation</class>
+        <host>9.43.102.106</host>
+        <userName>jianjiez</userName>
+        <password>blade123</password>
+        <ccView>jianjiez_hobart_submit06</ccView>
+        <tftpRoot>/tftpboot/temp/hobartzhang/</tftpRoot>
+        <tftpServer>9.111.86.13</tftpServer>
+        <localPath>C:\Users\IBM_ADMIN\Desktop\share\elf\temp\</localPath>
+    </my_station>
+
+</sut>

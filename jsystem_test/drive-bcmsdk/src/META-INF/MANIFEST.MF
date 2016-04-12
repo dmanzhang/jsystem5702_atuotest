@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.4
+Created-By: 1.6.0_21-b06 (Sun Microsystems Inc.)
+Built-By: Dman
+
+Name: com/aqua/drive-bcmsdk
+Implementation-Title: com.aqua.drive-bcmsdk
+Implementation-Version: Dman 10-12-2014, 14-48-56 10-12-2014, 14-48-56
+Implementation-Vendor: AQUA Software, www.aquasw.com
+

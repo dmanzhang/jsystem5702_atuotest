@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="drive-station">
+<property name="projectName" value="drive-station"/>
+<property environment="env"/>
+<property name="dist" value="../automationProj/lib"/>
+<property name="runnerRoot" value="C:\jsystem\runner"/>
+<property name="buildFilesDir" value="${runnerRoot}/dev"/>
+<import file="${buildFilesDir}/buildHelper.xml"/>
+</project>

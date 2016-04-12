@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.4
+Created-By: 1.6.0_21-b06 (Sun Microsystems Inc.)
+Built-By: Dman
+
+Name: com/aqua/drive-station
+Implementation-Title: com.aqua.drive-station
+Implementation-Version: Dman 15-10-2015, 17-07-18 15-10-2015, 17-07-18
+Implementation-Vendor: AQUA Software, www.aquasw.com
+

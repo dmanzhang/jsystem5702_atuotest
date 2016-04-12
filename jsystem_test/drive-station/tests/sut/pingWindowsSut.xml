@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sut>
+	<ping>
+		<class>com.aqua.stations.Ping</class>
+		<cliConnection>
+            <class>com.aqua.sysobj.conn.WindowsDefaultCliConnection</class>
+            <host edit="enable">127.0.0.1</host>
+            <user edit="enable">simpleuser</user>
+            <password edit="enable">simpleuser</password>
+		</cliConnection>
+	</ping>
+</sut>

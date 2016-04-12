@@ -1,0 +1,11 @@
+<sut>
+    <nosx_station>
+        <class>org.jsystem.automationProj.IbmNosxStation</class>
+        <host>9.111.71.28</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <tftpRoot>/tftpboot/temp/hobartzhang/</tftpRoot>
+        <promptString>(none)</promptString>
+        <SUTPort>Ethernet6</SUTPort>
+    </nosx_station>
+</sut>

@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.4
+Created-By: 1.6.0_21-b06 (Sun Microsystems Inc.)
+Built-By: Dman
+
+Name: com/aqua/drive-switch
+Implementation-Title: com.aqua.drive-switch
+Implementation-Version: Dman 03-06-2014, 11-43-41 03-06-2014, 11-43-41
+Implementation-Vendor: AQUA Software, www.aquasw.com
+

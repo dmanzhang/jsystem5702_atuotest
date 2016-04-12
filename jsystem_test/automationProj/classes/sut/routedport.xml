@@ -1,0 +1,22 @@
+<sut>
+    <my_switch1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>10.38.21.33</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+        <linkUpPort>20</linkUpPort>
+        <SUTPort>20</SUTPort>
+        <SUTPort1>21</SUTPort1>
+    </my_switch1>
+    <my_sut1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>10.38.21.27</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>G8264</promptString>
+        <linkUpPort>20</linkUpPort>
+        <SUTPort>20</SUTPort>
+        <SUTPort1>21</SUTPort1>
+    </my_sut1>
+</sut>

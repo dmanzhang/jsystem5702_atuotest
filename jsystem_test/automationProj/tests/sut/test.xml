@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sut>
+    <my_environment>
+        <class>org.jsystem.automationProj.MyTestEnvironment</class>
+        <environmentName>Gryphon</environmentName>
+        <switchNumber>3</switchNumber>
+        <switchList>1-2</switchList>
+        <tftpServer>9.111.65.61</tftpServer>
+        <imagePash>temp/hobartzhang</imagePash>
+    </my_environment>
+    <my_switch1>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>9.111.71.82</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>RS G8264</promptString>
+        <tftpServer>9.111.65.61</tftpServer>
+        <managePort>mgt</managePort>
+        <protocalPort>23</protocalPort>
+    </my_switch1>
+    <my_switch2>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>9.111.71.83</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>RS G8264</promptString>
+        <tftpServer>9.111.65.61</tftpServer>
+        <managePort>mgt</managePort>
+        <protocalPort>23</protocalPort>
+    </my_switch2>
+    <my_switch3>
+        <class>org.jsystem.automationProj.MySwitchOpen</class>
+        <host>9.111.71.84</host>
+        <userName>admin</userName>
+        <password>admin</password>
+        <promptString>RS G8264</promptString>
+        <tftpServer>9.111.65.61</tftpServer>
+        <managePort>mgt</managePort>
+        <protocalPort>23</protocalPort>
+    </my_switch3>
+    <my_ftpclient>
+        <class>org.jsystem.automationProj.MyFtpclient</class>
+        <host>9.43.102.106</host>
+        <userName>ftp</userName>
+        <password/>
+        <tftpRoot>/pub/temp/hobartzhang/</tftpRoot>
+        <tftpServer>9.111.65.61</tftpServer>
+        <localPath>C:\Users\IBM_ADMIN\Desktop\share\elf\temp\</localPath>
+    </my_ftpclient>
+    <my_sftpclient>
+        <class>org.jsystem.automationProj.MySftpclient</class>
+        <host>9.43.102.106</host>
+        <userName>jianjiez</userName>
+        <password>blade123</password>
+        <tftpRoot>/tftpboot/gryphon_rs/7.8/REL7.8.0.22_int0497/HW_GRYPHON_RS/NDEBUG/</tftpRoot>
+        <tftpServer>9.111.86.13</tftpServer>
+        <localPath>C:\Users\IBM_ADMIN\Desktop\share\elf\temp\</localPath>
+        <file1Name>G8264-RS-7.8.0.22_Boot.img</file1Name>
+        <file2Name>G8264-RS-7.8.0.22_OS.img</file2Name>
+    </my_sftpclient>
+    <my_switchcli>
+        <class>org.jsystem.automationProj.ConfigureTestParam</class>
+        <host>10.10.1.110</host>
+        <userName>quagga</userName>
+        <password>zebra</password>
+        <protocalPort>2601</protocalPort>
+    </my_switchcli>    
+</sut>

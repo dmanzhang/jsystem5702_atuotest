@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sut>
+    <broadcom_shell>
+        <class>org.jsystem.automationProj.BroadcomSDKshellParam</class>
+        <host>10.10.11.8</host>
+        <telnetPort>2014</telnetPort>
+        <userName>root</userName>
+        <tftpRoot>/media/ram/</tftpRoot>
+        <promptString>#</promptString>
+        <connectedPrompt>JHIES3110&gt;</connectedPrompt>
+        <connectMode>RAWRS232</connectMode>
+        <serialBaudRate>115200</serialBaudRate>
+        <serialPort>COM3</serialPort>
+    </broadcom_shell>
+    <my_sftpclient>
+        <class>org.jsystem.automationProj.MySftpclient</class>
+        <userName>root</userName>
+        <password> </password>
+        <tftpRoot>/media/ram/</tftpRoot>
+        <tftpServer>10.10.11.8</tftpServer>
+        <localPath>E:\work\9elf\kernel\</localPath>
+    </my_sftpclient>
+</sut>
