@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="com.aqua.sysobj.conn.WindowsDefaultCliConnection"/>
+<fullyQualifiedTypeName name="javax.comm.CommPortIdentifier"/>
+<fullyQualifiedTypeName name="java.util.Enumeration"/>
+<fullyQualifiedTypeName name="systemobject.terminal.Terminal"/>
+<fullyQualifiedTypeName name="systemobject.terminal.RS232"/>
+<fullyQualifiedTypeName name="systemobject.terminal.Cli"/>
+<fullyQualifiedTypeName name="systemobject.terminal.SSH"/>
+<fullyQualifiedTypeName name="javax.comm.SerialPort"/>
+<fullyQualifiedTypeName name="javax.comm.PortInUseException"/>
+<fullyQualifiedTypeName name="javax.comm.UnsupportedCommOperationException"/>
+<fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
+<fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
+<fullyQualifiedTypeName name="java.io.OutputStream"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="systemobject.terminal.VT100FilterInputStream"/>
+<fullyQualifiedTypeName name="com.aqua.sysobj.conn.IdleMonitor"/>
+<fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="com.aqua.sysobj.conn.Position"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
+<fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+<fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+<fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+</qualifiedTypeNameHistroy>
